@@ -6,6 +6,7 @@ import SearchBar from '@/components/SearchBar';
 import ToolCard from '@/components/ToolCard';
 import { tools, categories, getPopularTools } from '@/data/tools';
 import { ArrowRight, Zap, Users, Star, TrendingUp, Shield } from 'lucide-react';
+import heroBackground from '@/assets/hero-background.jpg';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,8 +21,13 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-glow opacity-30"></div>
+      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[90vh] flex items-center">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroBackground})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
+        <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
           <div className="animate-float">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
