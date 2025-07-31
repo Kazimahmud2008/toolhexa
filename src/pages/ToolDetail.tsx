@@ -5,6 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
 import JSONFormatter from '@/components/tools/JSONFormatter';
+import Base64Encoder from '@/components/tools/Base64Encoder';
+import ColorPicker from '@/components/tools/ColorPicker';
+import PasswordGenerator from '@/components/tools/PasswordGenerator';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, Users, Calendar, ExternalLink } from 'lucide-react';
 
@@ -21,7 +24,7 @@ const ToolDetail = () => {
             The tool you're looking for doesn't exist.
           </p>
           <Link to="/tools">
-            <Button variant="hero">
+            <Button variant="default">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Tools
             </Button>
@@ -41,17 +44,23 @@ const ToolDetail = () => {
     switch (tool.id) {
       case 'json-formatter':
         return <JSONFormatter />;
+      case 'base64-encoder':
+        return <Base64Encoder />;
+      case 'color-picker':
+        return <ColorPicker />;
+      case 'password-generator':
+        return <PasswordGenerator />;
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
-            <div className="p-16 bg-muted/30 rounded-lg border border-dashed border-border">
-              <tool.icon className="h-16 w-16 mx-auto mb-6 text-muted-foreground" />
-              <h3 className="text-2xl font-semibold mb-4">Tool Coming Soon</h3>
-              <p className="text-muted-foreground mb-6">
-                This tool is currently under development. Check back soon!
+            <div className="p-12 bg-muted/30 rounded-lg border border-border">
+              <tool.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-medium mb-3">Tool Available Soon</h3>
+              <p className="text-muted-foreground mb-6 text-sm">
+                This tool is being actively developed and will be available shortly.
               </p>
               <Link to="/tools">
-                <Button variant="outline">
+                <Button variant="outline" size="sm">
                   Browse Other Tools
                 </Button>
               </Link>

@@ -6,7 +6,6 @@ import SearchBar from '@/components/SearchBar';
 import ToolCard from '@/components/ToolCard';
 import { tools, categories, getPopularTools } from '@/data/tools';
 import { ArrowRight, Zap, Users, Star, TrendingUp, Shield } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,28 +20,17 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[90vh] flex items-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroBackground})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/60 to-background/80"></div>
-        <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto text-center">
-          <div className="animate-float">
-            <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
-              <span className="bg-gradient-primary bg-clip-text text-transparent drop-shadow-sm">
-                ToolVibe
-              </span>
-              <br />
-              <span className="text-3xl md:text-5xl text-muted-foreground font-sans font-medium">
-                Developer Tools
-              </span>
-            </h1>
-          </div>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto font-medium">
-            The ultimate collection of free online developer tools. 
-            Format, convert, optimize, and build with lightning-fast utilities.
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[80vh] flex items-center tech-pattern">
+        <div className="absolute inset-0 bg-gradient-tech"></div>
+        <div className="relative max-w-6xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 tracking-tight">
+            <span className="text-foreground">Professional</span>
+            <br />
+            <span className="text-primary">Developer Tools</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
+            Streamline your development workflow with fast, secure, browser-based utilities. 
+            No installations, no signups - just professional tools that work.
           </p>
 
           {/* Stats */}
@@ -63,14 +51,14 @@ const Home = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/tools">
-              <Button variant="hero" size="hero" className="animate-glow">
-                Explore All Tools
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button variant="default" size="lg">
+                Browse All Tools
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/categories">
-              <Button variant="glass" size="hero">
-                Browse Categories
+              <Button variant="outline" size="lg">
+                View Categories
               </Button>
             </Link>
           </div>
@@ -78,28 +66,28 @@ const Home = () => {
       </section>
 
       {/* Tool Categories */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Tool <span className="text-primary">Categories</span>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30 tech-pattern">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
+              Categories
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover tools organized by category to find exactly what you need
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Professional tools organized by functionality
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredCategories.map((category) => (
               <Link key={category.id} to={`/categories/${category.id}`}>
-                <Card className="group bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:scale-105 cursor-pointer h-full">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-4">
-                      <div className={`p-3 bg-gradient-to-br ${category.color} rounded-xl shadow-neon group-hover:shadow-glow transition-all duration-300`}>
-                        <category.icon className="h-8 w-8 text-white" />
+                <Card className="group bg-card border-border hover:border-primary/30 transition-all duration-200 hover:shadow-card cursor-pointer h-full">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-2 bg-primary/10 rounded-lg">
+                        <category.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">
+                        <CardTitle className="text-lg font-medium group-hover:text-primary transition-colors">
                           {category.name}
                         </CardTitle>
                         <div className="text-sm text-muted-foreground">
@@ -108,8 +96,8 @@ const Home = () => {
                       </div>
                     </div>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground">
+                  <CardContent className="pt-0">
+                    <CardDescription className="text-muted-foreground text-sm">
                       {category.description}
                     </CardDescription>
                   </CardContent>
@@ -118,11 +106,11 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Link to="/categories">
-              <Button variant="outline" size="lg">
+              <Button variant="outline">
                 View All Categories
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -130,17 +118,17 @@ const Home = () => {
       </section>
 
       {/* Popular Tools */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <TrendingUp className="h-8 w-8 text-primary" />
-              <h2 className="text-4xl font-bold">
-                Popular <span className="text-primary">Tools</span>
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center space-x-2 mb-3">
+              <TrendingUp className="h-6 w-6 text-primary" />
+              <h2 className="text-3xl font-bold">
+                Popular Tools
               </h2>
             </div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Most used tools by developers worldwide
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Most used by developers worldwide
             </p>
           </div>
 
@@ -160,11 +148,11 @@ const Home = () => {
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10">
             <Link to="/tools">
-              <Button variant="hero" size="lg">
+              <Button variant="default">
                 View All Tools
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -172,55 +160,55 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              Why Choose <span className="text-primary">ToolVibe</span>?
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">
+              Why Choose ToolVibe?
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Built by developers, for developers
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Professional tools designed for productivity
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="p-4 bg-gradient-primary rounded-2xl shadow-neon mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                <Zap className="h-8 w-8 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center p-4">
+              <div className="p-3 bg-primary/10 rounded-lg mx-auto w-12 h-12 flex items-center justify-center mb-4">
+                <Zap className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Lightning Fast</h3>
-              <p className="text-muted-foreground">
-                All tools run locally in your browser for instant results
+              <h3 className="text-lg font-medium mb-2">Fast</h3>
+              <p className="text-muted-foreground text-sm">
+                Browser-based tools with instant results
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="p-4 bg-gradient-primary rounded-2xl shadow-neon mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                <Shield className="h-8 w-8 text-white" />
+            <div className="text-center p-4">
+              <div className="p-3 bg-primary/10 rounded-lg mx-auto w-12 h-12 flex items-center justify-center mb-4">
+                <Shield className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Privacy First</h3>
-              <p className="text-muted-foreground">
-                Your data never leaves your device - completely secure
+              <h3 className="text-lg font-medium mb-2">Secure</h3>
+              <p className="text-muted-foreground text-sm">
+                Your data never leaves your device
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="p-4 bg-gradient-primary rounded-2xl shadow-neon mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                <Users className="h-8 w-8 text-white" />
+            <div className="text-center p-4">
+              <div className="p-3 bg-primary/10 rounded-lg mx-auto w-12 h-12 flex items-center justify-center mb-4">
+                <Users className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Community Driven</h3>
-              <p className="text-muted-foreground">
-                Built based on feedback from the developer community
+              <h3 className="text-lg font-medium mb-2">Reliable</h3>
+              <p className="text-muted-foreground text-sm">
+                Trusted by thousands of developers
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="p-4 bg-gradient-primary rounded-2xl shadow-neon mx-auto w-16 h-16 flex items-center justify-center mb-6">
-                <Star className="h-8 w-8 text-white" />
+            <div className="text-center p-4">
+              <div className="p-3 bg-primary/10 rounded-lg mx-auto w-12 h-12 flex items-center justify-center mb-4">
+                <Star className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Always Free</h3>
-              <p className="text-muted-foreground">
-                No subscriptions, no limits - forever free to use
+              <h3 className="text-lg font-medium mb-2">Free</h3>
+              <p className="text-muted-foreground text-sm">
+                No subscriptions or limits
               </p>
             </div>
           </div>
@@ -228,24 +216,23 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
-        <div className="relative max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Supercharge Your Development?
+      <section className="py-16 px-4 sm:px-6 lg:px-8 tech-pattern">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Start Building Today
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Join thousands of developers who use ToolVibe daily to streamline their workflow
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+            Access professional developer tools instantly - no setup required
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/tools">
-              <Button variant="glass" size="hero" className="text-white border-white/30 hover:bg-white/20">
-                Start Using Tools
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button variant="default" size="lg">
+                Browse Tools
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link to="/about">
-              <Button variant="outline" size="hero" className="text-white border-white hover:bg-white hover:text-primary">
+              <Button variant="outline" size="lg">
                 Learn More
               </Button>
             </Link>

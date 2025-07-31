@@ -27,15 +27,15 @@ const ToolCard: React.FC<ToolCardProps> = ({
   usage = '0'
 }) => {
   return (
-    <Card className="group bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:scale-105 cursor-pointer">
+    <Card className="group bg-card border-border hover:border-primary/30 transition-all duration-200 hover:shadow-card cursor-pointer">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-primary rounded-lg shadow-neon group-hover:shadow-glow transition-all duration-300">
+            <div className="p-2 bg-primary/10 rounded-lg">
               {icon}
             </div>
-            <div>
-              <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
+            <div className="flex-1">
+              <CardTitle className="text-lg font-medium group-hover:text-primary transition-colors">
                 {name}
               </CardTitle>
               <div className="flex items-center space-x-2 mt-1">
@@ -43,7 +43,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
                   {category}
                 </Badge>
                 {popular && (
-                  <Badge variant="outline" className="text-xs border-primary text-primary">
+                  <Badge variant="outline" className="text-xs">
                     <Star className="h-3 w-3 mr-1 fill-current" />
                     Popular
                   </Badge>
@@ -51,24 +51,17 @@ const ToolCard: React.FC<ToolCardProps> = ({
               </div>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          >
-            <Heart className="h-4 w-4" />
-          </Button>
         </div>
       </CardHeader>
       <CardContent className="pt-0">
-        <CardDescription className="text-muted-foreground mb-4 line-clamp-2">
+        <CardDescription className="text-muted-foreground mb-4 text-sm line-clamp-2">
           {description}
         </CardDescription>
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+          <div className="flex items-center space-x-3 text-xs text-muted-foreground">
             {rating > 0 && (
               <div className="flex items-center space-x-1">
-                <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                <Star className="h-3 w-3 fill-primary text-primary" />
                 <span>{rating.toFixed(1)}</span>
               </div>
             )}
@@ -78,10 +71,9 @@ const ToolCard: React.FC<ToolCardProps> = ({
             <Button
               variant="outline"
               size="sm"
-              className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0"
+              className="text-xs"
             >
-              Try Now
-              <ExternalLink className="h-4 w-4 ml-1" />
+              Open Tool
             </Button>
           </Link>
         </div>
