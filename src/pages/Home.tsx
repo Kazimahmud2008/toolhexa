@@ -30,27 +30,20 @@ const Home = () => {
         <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
           <div className="animate-float">
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="neon-text">ToolVibe</span>
+            <h1 className="text-6xl md:text-8xl font-display font-bold mb-6">
+              <span className="bg-gradient-primary bg-clip-text text-transparent drop-shadow-sm">
+                ToolVibe
+              </span>
               <br />
-              <span className="text-3xl md:text-5xl text-muted-foreground">
+              <span className="text-3xl md:text-5xl text-muted-foreground font-sans font-medium">
                 Developer Tools
               </span>
             </h1>
           </div>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto font-medium">
             The ultimate collection of free online developer tools. 
             Format, convert, optimize, and build with lightning-fast utilities.
           </p>
-
-          {/* Search Bar */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <SearchBar
-              onSearch={handleSearch}
-              placeholder="Search 50+ tools... (JSON formatter, Base64 encoder, etc.)"
-              className="animate-shimmer"
-            />
-          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-16">

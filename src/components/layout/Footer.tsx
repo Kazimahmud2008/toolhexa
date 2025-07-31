@@ -1,71 +1,69 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Zap, Github, Twitter, Mail } from 'lucide-react';
+import { Github, Twitter, Mail, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     Tools: [
-      { name: 'Text Tools', href: '/categories/text' },
-      { name: 'Image Tools', href: '/categories/image' },
-      { name: 'CSS Tools', href: '/categories/css' },
-      { name: 'JSON Tools', href: '/categories/coding' },
+      { name: 'JSON Formatter', href: '/tools/json-formatter' },
+      { name: 'Base64 Encoder', href: '/tools/base64-encoder' },
+      { name: 'URL Encoder', href: '/tools/url-encoder' },
+      { name: 'Hash Generator', href: '/tools/hash-generator' },
     ],
     Company: [
       { name: 'About', href: '/about' },
       { name: 'Contact', href: '/contact' },
       { name: 'Blog', href: '/blog' },
-      { name: 'Privacy Policy', href: '/privacy' },
+      { name: 'Products', href: '/products' },
     ],
     Resources: [
       { name: 'All Tools', href: '/tools' },
       { name: 'Categories', href: '/categories' },
-      { name: 'Popular Tools', href: '/popular' },
-      { name: 'API Docs', href: '/api' },
+      { name: 'Support', href: '/contact' },
+      { name: 'Documentation', href: '/about' },
     ],
   };
 
   return (
-    <footer className="bg-card border-t border-border mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-gradient-card border-t border-border/40 mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="p-2 bg-gradient-primary rounded-lg shadow-neon">
-                <Zap className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold neon-text">ToolVibe</span>
+            <Link to="/" className="flex items-center mb-6">
+              <span className="text-3xl font-display font-bold bg-gradient-primary bg-clip-text text-transparent">
+                ToolVibe
+              </span>
             </Link>
-            <p className="text-muted-foreground mb-6 max-w-md">
+            <p className="text-muted-foreground mb-8 max-w-md leading-relaxed font-medium">
               The ultimate collection of free online developer tools. 
-              Build, format, convert, and optimize your code with our 
-              lightning-fast utilities.
+              Built with care for the developer community worldwide.
             </p>
             <div className="flex space-x-4">
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
               >
-                <Github className="h-6 w-6" />
+                <Github className="h-5 w-5" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
               >
-                <Twitter className="h-6 w-6" />
+                <Twitter className="h-5 w-5" />
               </a>
               <a
                 href="mailto:hello@toolvibe.dev"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
               >
-                <Mail className="h-6 w-6" />
+                <Mail className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -73,7 +71,7 @@ const Footer = () => {
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
+              <h3 className="text-lg font-display font-semibold text-foreground mb-6">
                 {category}
               </h3>
               <ul className="space-y-3">
@@ -81,7 +79,7 @@ const Footer = () => {
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                      className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
                     >
                       {link.name}
                     </Link>
@@ -93,29 +91,25 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border mt-12 pt-8">
+        <div className="border-t border-border/40 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-muted-foreground text-sm">
-              © {currentYear} ToolVibe. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
+            <div className="flex items-center text-muted-foreground font-medium">
+              <span>&copy; {currentYear} ToolVibe. Made with</span>
+              <Heart className="h-4 w-4 text-primary mx-2" />
+              <span>for developers.</span>
+            </div>
+            <div className="flex space-x-8 mt-4 md:mt-0">
               <Link
                 to="/terms"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
               >
                 Terms of Service
               </Link>
               <Link
                 to="/privacy"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
               >
                 Privacy Policy
-              </Link>
-              <Link
-                to="/sitemap"
-                className="text-muted-foreground hover:text-primary text-sm transition-colors duration-300"
-              >
-                Sitemap
               </Link>
             </div>
           </div>
