@@ -36,12 +36,12 @@ const Home = () => {
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tight antialiased">
             <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
               Modern Tools for
             </span>
             <br />
-            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent neon-text">
+            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent font-bold antialiased" style={{ textRendering: 'optimizeLegibility' }}>
               Smart Developers
             </span>
           </h1>

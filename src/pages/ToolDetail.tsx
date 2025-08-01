@@ -8,6 +8,11 @@ import JSONFormatter from '@/components/tools/JSONFormatter';
 import Base64Encoder from '@/components/tools/Base64Encoder';
 import ColorPicker from '@/components/tools/ColorPicker';
 import PasswordGenerator from '@/components/tools/PasswordGenerator';
+import URLEncoder from '@/components/tools/URLEncoder';
+import HTMLEncoder from '@/components/tools/HTMLEncoder';
+import UUIDGenerator from '@/components/tools/UUIDGenerator';
+import HashGenerator from '@/components/tools/HashGenerator';
+import QRCodeGenerator from '@/components/tools/QRCodeGenerator';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, Users, Calendar, ExternalLink } from 'lucide-react';
 
@@ -50,6 +55,16 @@ const ToolDetail = () => {
         return <ColorPicker />;
       case 'password-generator':
         return <PasswordGenerator />;
+      case 'url-encoder':
+        return <URLEncoder />;
+      case 'html-encoder':
+        return <HTMLEncoder />;
+      case 'uuid-generator':
+        return <UUIDGenerator />;
+      case 'hash-generator':
+        return <HashGenerator />;
+      case 'qr-code-generator':
+        return <QRCodeGenerator />;
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
