@@ -15,12 +15,15 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-muted hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        hero: "bg-gradient-primary text-white hover:shadow-glow transition-all duration-300",
+        glass: "glass backdrop-blur-md bg-white/10 text-white border border-white/20 hover:bg-white/20",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-8 px-3",
         lg: "h-12 px-6",
         icon: "h-10 w-10",
+        hero: "h-14 px-8 text-lg",
       },
     },
     defaultVariants: {

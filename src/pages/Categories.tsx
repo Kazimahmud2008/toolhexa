@@ -47,101 +47,36 @@ const Categories = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
             {categories.map((category) => (
-              <Card 
+              <Link 
                 key={category.id}
-                className={`group bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:scale-105 cursor-pointer h-full ${
-                  selectedCategory === category.name.toLowerCase().replace(' tools', '') ? 'ring-2 ring-primary' : ''
-                }`}
-                onClick={() => setSelectedCategory(category.name.toLowerCase().replace(' tools', ''))}
+                to={`/categories/${category.id}`}
+                className="block group"
               >
-                <CardHeader className="text-center pb-4">
-                  <div className={`p-4 bg-gradient-to-br ${category.color} rounded-xl shadow-neon group-hover:shadow-glow transition-all duration-300 mx-auto w-16 h-16 flex items-center justify-center mb-4`}>
-                    <category.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
-                    {category.name}
-                  </CardTitle>
-                  <Badge variant="secondary" className="mx-auto">
-                    {category.count} tools
-                  </Badge>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardDescription className="text-muted-foreground">
-                    {category.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+                <Card className="group bg-gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:shadow-glow hover:scale-105 cursor-pointer h-full">
+                  <CardHeader className="text-center pb-4">
+                    <div className="p-4 bg-gradient-primary rounded-xl shadow-neon group-hover:shadow-glow transition-all duration-300 mx-auto w-16 h-16 flex items-center justify-center mb-4">
+                      <category.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
+                      {category.name}
+                    </CardTitle>
+                    <Badge variant="secondary" className="mx-auto">
+                      {category.count} tools
+                    </Badge>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <CardDescription className="text-muted-foreground mb-4">
+                      {category.description}
+                    </CardDescription>
+                    <div className="text-sm text-primary font-medium group-hover:text-primary-glow transition-colors">
+                      View Tools →
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap gap-2 justify-center mb-12">
-            <Button
-              variant={selectedCategory === 'all' ? 'hero' : 'outline'}
-              onClick={() => setSelectedCategory('all')}
-              size="sm"
-            >
-              All Tools ({tools.length})
-            </Button>
-            {categories.map((category) => {
-              const categoryKey = category.name.toLowerCase().replace(' tools', '');
-              return (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === categoryKey ? 'hero' : 'outline'}
-                  onClick={() => setSelectedCategory(categoryKey)}
-                  size="sm"
-                >
-                  {category.name} ({category.count})
-                </Button>
-              );
-            })}
-          </div>
-
-          {/* Tools Grid */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold mb-2">
-              {selectedCategory === 'all' 
-                ? 'All Tools' 
-                : categories.find(cat => cat.name.toLowerCase().replace(' tools', '') === selectedCategory)?.name || 'Tools'
-              }
-            </h3>
-            <p className="text-muted-foreground mb-8">
-              {filteredTools.length} tool{filteredTools.length !== 1 ? 's' : ''} available
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredTools.map((tool) => (
-              <ToolCard
-                key={tool.id}
-                id={tool.id}
-                name={tool.name}
-                description={tool.description}
-                category={tool.category}
-                icon={<tool.icon className="h-6 w-6 text-white" />}
-                popular={tool.popular}
-                rating={tool.rating}
-                usage={tool.usage}
-              />
-            ))}
-          </div>
-
-          {filteredTools.length === 0 && (
-            <div className="text-center py-16">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold mb-2">No tools found</h3>
-              <p className="text-muted-foreground mb-6">
-                Try selecting a different category or browse all tools
-              </p>
-              <Button 
-                variant="hero" 
-                onClick={() => setSelectedCategory('all')}
-              >
-                View All Tools
-              </Button>
-            </div>
-          )}
         </div>
       </section>
 
@@ -180,14 +115,12 @@ const Categories = () => {
                     <CardDescription className="mb-4">
                       {category.description}
                     </CardDescription>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setSelectedCategory(category.name.toLowerCase().replace(' tools', ''))}
-                      className="w-full"
-                    >
-                      Explore Category
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <Link to={`/categories/${category.id}`}>
+                      <Button variant="outline" className="w-full">
+                        Explore Category
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               ))}
@@ -206,14 +139,14 @@ const Categories = () => {
             Let us know what tools you'd like to see. We're always adding new categories and tools.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact">
+            <Link to="/tools">
               <Button variant="glass" size="hero" className="text-white border-white/30 hover:bg-white/20">
-                Request a Tool
+                Browse All Tools
               </Button>
             </Link>
-            <Link to="/tools">
+            <Link to="/categories">
               <Button variant="outline" size="hero" className="text-white border-white hover:bg-white hover:text-primary">
-                Browse All Tools
+                View Categories
               </Button>
             </Link>
           </div>

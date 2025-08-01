@@ -20,45 +20,70 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[80vh] flex items-center tech-pattern">
-        <div className="absolute inset-0 bg-gradient-tech"></div>
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 tracking-tight">
-            <span className="text-foreground">Professional</span>
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[90vh] flex items-center">
+        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary-glow/20 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-primary opacity-10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto text-center">
+          <div className="mb-8">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+              <Zap className="w-4 h-4 mr-2" />
+              55+ Professional Developer Tools
+            </div>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tight">
+            <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+              Modern Tools for
+            </span>
             <br />
-            <span className="text-primary">Developer Tools</span>
+            <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent neon-text">
+              Smart Developers
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-            Streamline your development workflow with fast, secure, browser-based utilities. 
-            No installations, no signups - just professional tools that work.
+          
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed">
+            Enhance your development workflow with our collection of fast, secure, and intuitive browser-based utilities. 
+            <br className="hidden md:block" />
+            <span className="text-primary font-medium">No installations. No signups. Just pure productivity.</span>
           </p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Free Tools</div>
+          {/* Enhanced Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-16">
+            <div className="text-center p-6 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">55+</div>
+              <div className="text-muted-foreground font-medium">Free Tools</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">1M+</div>
-              <div className="text-muted-foreground">Monthly Users</div>
+            <div className="text-center p-6 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">1M+</div>
+              <div className="text-muted-foreground font-medium">Monthly Users</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary mb-2">99.9%</div>
-              <div className="text-muted-foreground">Uptime</div>
+            <div className="text-center p-6 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">99.9%</div>
+              <div className="text-muted-foreground font-medium">Uptime</div>
+            </div>
+            <div className="text-center p-6 rounded-2xl bg-card/50 border border-border hover:border-primary/30 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">24/7</div>
+              <div className="text-muted-foreground font-medium">Available</div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link to="/tools">
-              <Button variant="default" size="lg">
+              <Button variant="hero" size="hero" className="group">
+                <Zap className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                 Browse All Tools
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
             <Link to="/categories">
-              <Button variant="outline" size="lg">
+              <Button variant="glass" size="hero" className="backdrop-blur-sm">
                 View Categories
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>
@@ -164,7 +189,7 @@ const Home = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why Choose ToolVibe?
+              Why Choose Toolhexa?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Professional tools designed for productivity
@@ -231,9 +256,9 @@ const Home = () => {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <Link to="/about">
+            <Link to="/categories">
               <Button variant="outline" size="lg">
-                Learn More
+                Explore Tools
               </Button>
             </Link>
           </div>

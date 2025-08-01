@@ -6,64 +6,66 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    Tools: [
+    'Popular Tools': [
       { name: 'JSON Formatter', href: '/tools/json-formatter' },
       { name: 'Base64 Encoder', href: '/tools/base64-encoder' },
-      { name: 'URL Encoder', href: '/tools/url-encoder' },
-      { name: 'Hash Generator', href: '/tools/hash-generator' },
+      { name: 'Color Picker', href: '/tools/color-picker' },
+      { name: 'Password Generator', href: '/tools/password-generator' },
     ],
-    Company: [
-      { name: 'About', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Products', href: '/products' },
+    'Categories': [
+      { name: 'Text Tools', href: '/categories/text' },
+      { name: 'Image Tools', href: '/categories/image' },
+      { name: 'CSS Tools', href: '/categories/css' },
+      { name: 'Color Tools', href: '/categories/color' },
     ],
-    Resources: [
+    'Resources': [
       { name: 'All Tools', href: '/tools' },
-      { name: 'Categories', href: '/categories' },
-      { name: 'Support', href: '/contact' },
-      { name: 'Documentation', href: '/about' },
+      { name: 'Browse Categories', href: '/categories' },
+      { name: 'Blog', href: '/blog' },
+      { name: 'Developer Tools', href: '/tools' },
     ],
   };
 
   return (
-    <footer className="bg-gradient-card border-t border-border/40 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-card border-t border-border mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center mb-6">
-              <span className="text-3xl font-display font-bold bg-gradient-primary bg-clip-text text-transparent">
-                ToolVibe
+          <div>
+            <Link to="/" className="flex items-center mb-4">
+              <span className="text-2xl font-display font-bold text-primary">
+                Toolhexa
               </span>
             </Link>
-            <p className="text-muted-foreground mb-8 max-w-md leading-relaxed font-medium">
-              The ultimate collection of free online developer tools. 
-              Built with care for the developer community worldwide.
+            <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
+              Professional developer tools for modern workflows. Fast, secure, and always free.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
+              <a
+                href="mailto:hello@toolhexa.dev"
+                className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                aria-label="Email"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-4 w-4" />
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
+                className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-200"
+                aria-label="Twitter"
               >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="mailto:hello@toolvibe.dev"
-                className="p-2 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300"
-              >
-                <Mail className="h-5 w-5" />
+                <Twitter className="h-4 w-4" />
               </a>
             </div>
           </div>
@@ -71,15 +73,15 @@ const Footer = () => {
           {/* Footer Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h3 className="text-lg font-display font-semibold text-foreground mb-6">
+              <h3 className="text-sm font-semibold text-foreground mb-4">
                 {category}
               </h3>
-              <ul className="space-y-3">
+              <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       to={link.href}
-                      className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
                     >
                       {link.name}
                     </Link>
@@ -91,26 +93,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-border/40 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center text-muted-foreground font-medium">
-              <span>&copy; {currentYear} ToolVibe. Made with</span>
-              <Heart className="h-4 w-4 text-primary mx-2" />
-              <span>for developers.</span>
+        <div className="border-t border-border mt-8 pt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
+            <div className="flex items-center text-muted-foreground">
+              <span>&copy; {currentYear} Toolhexa. Made with</span>
+              <Heart className="h-3 w-3 text-primary mx-1 fill-current" />
+              <span>for developers</span>
             </div>
-            <div className="flex space-x-8 mt-4 md:mt-0">
-              <Link
-                to="/terms"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                to="/privacy"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
-              >
-                Privacy Policy
-              </Link>
+            <div className="flex space-x-6 mt-4 sm:mt-0">
+              <span className="text-muted-foreground">Privacy Policy</span>
+              <span className="text-muted-foreground">Terms of Service</span>
             </div>
           </div>
         </div>

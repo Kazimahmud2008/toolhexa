@@ -20,8 +20,6 @@ const Header = () => {
     { name: 'Categories', href: '/categories' },
     { name: 'Products', href: '/products' },
     { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -31,7 +29,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center group">
             <span className="text-2xl font-display font-bold text-primary hover:text-primary-glow transition-colors duration-300">
-              ToolVibe
+              Toolhexa
             </span>
           </Link>
 
