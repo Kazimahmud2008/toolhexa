@@ -13,6 +13,15 @@ import HTMLEncoder from '@/components/tools/HTMLEncoder';
 import UUIDGenerator from '@/components/tools/UUIDGenerator';
 import HashGenerator from '@/components/tools/HashGenerator';
 import QRCodeGenerator from '@/components/tools/QRCodeGenerator';
+import MarkdownToHTML from '@/components/tools/MarkdownToHTML';
+import RegexTester from '@/components/tools/RegexTester';
+import JSONToCSV from '@/components/tools/JSONToCSV';
+import TextCaseConverter from '@/components/tools/TextCaseConverter';
+import WordCounter from '@/components/tools/WordCounter';
+import LoremIpsumGenerator from '@/components/tools/LoremIpsumGenerator';
+import TextDiffChecker from '@/components/tools/TextDiffChecker';
+import YouTubeThumbnailDownloader from '@/components/tools/YouTubeThumbnailDownloader';
+import TimestampConverter from '@/components/tools/TimestampConverter';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, Users, Calendar, ExternalLink } from 'lucide-react';
 
@@ -65,6 +74,24 @@ const ToolDetail = () => {
         return <HashGenerator />;
       case 'qr-code-generator':
         return <QRCodeGenerator />;
+      case 'markdown-to-html':
+        return <MarkdownToHTML />;
+      case 'regex-tester':
+        return <RegexTester />;
+      case 'json-to-csv':
+        return <JSONToCSV />;
+      case 'text-case-converter':
+        return <TextCaseConverter />;
+      case 'word-counter':
+        return <WordCounter />;
+      case 'lorem-ipsum':
+        return <LoremIpsumGenerator />;
+      case 'text-diff':
+        return <TextDiffChecker />;
+      case 'youtube-thumbnail-downloader':
+        return <YouTubeThumbnailDownloader />;
+      case 'timestamp-converter':
+        return <TimestampConverter />;
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
