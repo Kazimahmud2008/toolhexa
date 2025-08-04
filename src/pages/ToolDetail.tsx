@@ -22,6 +22,17 @@ import LoremIpsumGenerator from '@/components/tools/LoremIpsumGenerator';
 import TextDiffChecker from '@/components/tools/TextDiffChecker';
 import YouTubeThumbnailDownloader from '@/components/tools/YouTubeThumbnailDownloader';
 import TimestampConverter from '@/components/tools/TimestampConverter';
+import CSSGridGenerator from '@/components/tools/CSSGridGenerator';
+import CSSFlexboxGenerator from '@/components/tools/CSSFlexboxGenerator';
+import CSSFormatter from '@/components/tools/CSSFormatter';
+import CSSAnimationGenerator from '@/components/tools/CSSAnimationGenerator';
+import CSSMinifier from '@/components/tools/CSSMinifier';
+import GradientTextGenerator from '@/components/tools/GradientTextGenerator';
+import CSSBoxShadowGenerator from '@/components/tools/CSSBoxShadowGenerator';
+import CSSClipPathGenerator from '@/components/tools/CSSClipPathGenerator';
+import CSSBorderRadiusGenerator from '@/components/tools/CSSBorderRadiusGenerator';
+import JavaScriptFormatter from '@/components/tools/JavaScriptFormatter';
+import HTMLFormatter from '@/components/tools/HTMLFormatter';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, Users, Calendar, ExternalLink } from 'lucide-react';
 
@@ -92,6 +103,28 @@ const ToolDetail = () => {
         return <YouTubeThumbnailDownloader />;
       case 'timestamp-converter':
         return <TimestampConverter />;
+      case 'css-grid-generator':
+        return <CSSGridGenerator />;
+      case 'css-flexbox-generator':
+        return <CSSFlexboxGenerator />;
+      case 'css-formatter':
+        return <CSSFormatter />;
+      case 'css-animation-generator':
+        return <CSSAnimationGenerator />;
+      case 'css-minifier':
+        return <CSSMinifier />;
+      case 'gradient-text-generator':
+        return <GradientTextGenerator />;
+      case 'css-box-shadow':
+        return <CSSBoxShadowGenerator />;
+      case 'css-clip-path':
+        return <CSSClipPathGenerator />;
+      case 'css-border-radius':
+        return <CSSBorderRadiusGenerator />;
+      case 'js-formatter':
+        return <JavaScriptFormatter />;
+      case 'html-formatter':
+        return <HTMLFormatter />;
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
