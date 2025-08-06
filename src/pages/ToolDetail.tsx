@@ -33,6 +33,31 @@ import CSSClipPathGenerator from '@/components/tools/CSSClipPathGenerator';
 import CSSBorderRadiusGenerator from '@/components/tools/CSSBorderRadiusGenerator';
 import JavaScriptFormatter from '@/components/tools/JavaScriptFormatter';
 import HTMLFormatter from '@/components/tools/HTMLFormatter';
+import SQLFormatter from '@/components/tools/SQLFormatter';
+import XMLFormatter from '@/components/tools/XMLFormatter';
+import YAMLFormatter from '@/components/tools/YAMLFormatter';
+import ImageCompressor from '@/components/tools/ImageCompressor';
+import ImageResizer from '@/components/tools/ImageResizer';
+import ImageFormatConverter from '@/components/tools/ImageFormatConverter';
+import FaviconGenerator from '@/components/tools/FaviconGenerator';
+import ImageCropper from '@/components/tools/ImageCropper';
+import SVGOptimizer from '@/components/tools/SVGOptimizer';
+import ImageFilter from '@/components/tools/ImageFilter';
+import ImagePlaceholderGenerator from '@/components/tools/ImagePlaceholderGenerator';
+import ImageMetadataViewer from '@/components/tools/ImageMetadataViewer';
+import CSSGradientGenerator from '@/components/tools/CSSGradientGenerator';
+import MetaTagGenerator from '@/components/tools/MetaTagGenerator';
+import SitemapGenerator from '@/components/tools/SitemapGenerator';
+import RobotsTxtGenerator from '@/components/tools/RobotsTxtGenerator';
+import ColorPaletteGenerator from '@/components/tools/ColorPaletteGenerator';
+import ColorConverter from '@/components/tools/ColorConverter';
+import ContrastChecker from '@/components/tools/ContrastChecker';
+import SocialMediaResizer from '@/components/tools/SocialMediaResizer';
+import HashtagGenerator from '@/components/tools/HashtagGenerator';
+import URLShortener from '@/components/tools/URLShortener';
+import EmailValidator from '@/components/tools/EmailValidator';
+import UnitConverter from '@/components/tools/UnitConverter';
+import WHOISLookup from '@/components/tools/WHOISLookup';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, Users, Calendar, ExternalLink } from 'lucide-react';
 
@@ -125,6 +150,58 @@ const ToolDetail = () => {
         return <JavaScriptFormatter />;
       case 'html-formatter':
         return <HTMLFormatter />;
+      case 'sql-formatter':
+        return <SQLFormatter />;
+      case 'xml-formatter':
+        return <XMLFormatter />;
+      case 'yaml-formatter':
+        return <YAMLFormatter />;
+      case 'image-compressor':
+        return <ImageCompressor />;
+      case 'image-resizer':
+        return <ImageResizer />;
+      case 'image-format-converter':
+        return <ImageFormatConverter />;
+      case 'favicon-generator':
+        return <FaviconGenerator />;
+      case 'image-cropper':
+        return <ImageCropper />;
+      case 'svg-optimizer':
+        return <SVGOptimizer />;
+      case 'image-filter':
+        return <ImageFilter />;
+      case 'image-placeholder':
+        return <ImagePlaceholderGenerator />;
+      case 'image-metadata-viewer':
+        return <ImageMetadataViewer />;
+      case 'css-gradient-generator':
+        return <CSSGradientGenerator />;
+      case 'meta-tag-generator':
+        return <MetaTagGenerator />;
+      case 'sitemap-generator':
+        return <SitemapGenerator />;
+      case 'robots-txt-generator':
+        return <RobotsTxtGenerator />;
+      case 'color-palette-generator':
+        return <ColorPaletteGenerator />;
+      case 'color-converter':
+        return <ColorConverter />;
+      case 'contrast-checker':
+        return <ContrastChecker />;
+      case 'social-media-resizer':
+        return <SocialMediaResizer />;
+      case 'hashtag-generator':
+        return <HashtagGenerator />;
+      case 'url-shortener':
+        return <URLShortener />;
+      case 'email-validator':
+        return <EmailValidator />;
+      case 'unit-converter':
+        return <UnitConverter />;
+      case 'lorem-pixel':
+        return <ImagePlaceholderGenerator />;
+      case 'whois-lookup':
+        return <WHOISLookup />;
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
