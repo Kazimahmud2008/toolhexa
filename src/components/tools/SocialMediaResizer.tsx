@@ -5,7 +5,21 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast';
 import { Upload, Download, Smartphone } from 'lucide-react';
 
-const platforms = {
+interface PlatformSize {
+  width: number;
+  height: number;
+  name: string;
+}
+
+interface PlatformSizes {
+  [key: string]: PlatformSize;
+}
+
+interface Platforms {
+  [key: string]: PlatformSizes;
+}
+
+const platforms: Platforms = {
   instagram: {
     post: { width: 1080, height: 1080, name: 'Instagram Post (Square)' },
     story: { width: 1080, height: 1920, name: 'Instagram Story' },
