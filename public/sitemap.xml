@@ -35,20 +35,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  
-  <url>
-    <loc>https://toolhexa.netlify.app/about</loc>
-    <lastmod>2025-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://toolhexa.netlify.app/contact</loc>
-    <lastmod>2025-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
 
   <!-- Tool Pages -->
   <url>
