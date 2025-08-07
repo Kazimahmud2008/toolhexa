@@ -15,7 +15,7 @@ User-agent: facebookexternalhit
 Allow: /
 
 # Sitemap location
-Sitemap: https://toolvibe.com/sitemap.xml
+Sitemap: https://toolhexa.netlify.app/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
