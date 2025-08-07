@@ -18,4 +18,4 @@ Allow: /
 Sitemap: https://toolhexa.netlify.app/sitemap.xml
 
 # Crawl-delay for respectful crawling
-Crawl-delay: 1
+# Crawl-delay: 1
