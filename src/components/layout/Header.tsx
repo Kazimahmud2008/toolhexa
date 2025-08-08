@@ -35,7 +35,7 @@ const Header = () => {
             <img 
               src={toolhexaLogo} 
               alt="ToolHexa - Professional Tools Collection" 
-              className="h-8 w-auto hover:opacity-80 transition-opacity duration-300"
+              className="h-10 w-auto hover:opacity-80 transition-opacity duration-300"
             />
           </Link>
 
