@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Zap, Moon, Sun } from 'lucide-react';
-import toolvibeLogo from '@/assets/toolvibe-logo.png';
+import toolhexaLogo from '@/assets/toolhexa-logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,9 +32,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center group">
-            <span className="text-2xl font-display font-bold text-primary hover:text-primary-glow transition-colors duration-300">
-              Toolhexa
-            </span>
+            <img 
+              src={toolhexaLogo} 
+              alt="ToolHexa - Professional Tools Collection" 
+              className="h-8 w-auto hover:opacity-80 transition-opacity duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
