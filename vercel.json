@@ -5,15 +5,11 @@
       "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
-    },
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "toolhexa.vercel.app" }],
-      "destination": "https://toolhexa.vercel.app/:path*",
-      "permanent": true
     }
   ],
   "rewrites": [
+    { "source": "/robots.txt", "destination": "/robots.txt" },
     { "source": "/(.*)", "destination": "/" }
   ]
 }
+
