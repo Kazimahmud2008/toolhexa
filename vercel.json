@@ -1,11 +1,14 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
+      "source": "http://toolhexa.vercel.app/:path*",
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
-      "source": "http://toolhexa.vercel.app/:path*", "destination": "https://toolhexa.vercel.app/:path*", "permanent": true 
+    },
+    {
+      "source": "https://www.toolhexa.vercel.app/:path*",
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -14,3 +17,4 @@
     { "source": "/(.*)", "destination": "/" }
   ]
 }
+
