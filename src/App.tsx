@@ -13,6 +13,8 @@ import Blog from "./pages/Blog";
 import Categories from "./pages/Categories";
 import CategoryDetail from "./pages/CategoryDetail";
 import NotFound from "./pages/NotFound";
+import { BrowserRouter } from "react-router-dom";
+
 
 const queryClient = new QueryClient();
 
