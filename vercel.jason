@@ -1,0 +1,28 @@
+{
+  "redirects": [
+    {
+      "source": "http://toolhexa.vercel.app/:path*",
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "permanent": true
+    },
+    {
+      "source": "https://www.toolhexa.vercel.app/:path*",
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/"
+    }
+  ]
+}
