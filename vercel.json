@@ -5,6 +5,7 @@
       "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
+      "source": "http://toolhexa.vercel.app/:path*", "destination": "https://toolhexa.vercel.app/:path*", "permanent": true 
     }
   ],
   "rewrites": [
