@@ -3,6 +3,7 @@
     {
       "source": "/:path*",
       "has": [
+        { "type": "host", "value": "www.toolhexa.vercel.app" },
         { "type": "protocol", "value": "http" }
       ],
       "destination": "https://toolhexa.vercel.app/:path*",
@@ -10,9 +11,7 @@
     },
     {
       "source": "/:path*(?!sitemap.xml$)",
-      "has": [
-        { "type": "host", "value": "www.toolhexa.vercel.app" }
-      ],
+      "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
     }
