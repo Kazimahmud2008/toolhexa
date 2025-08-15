@@ -2,14 +2,15 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
+      "has": [
+        { "type": "host", "value": "www.toolhexa.vercel.app" }
+      ],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
     { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" }  // Ensure correct path
   ]
 }
