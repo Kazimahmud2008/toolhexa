@@ -11,6 +11,6 @@
   ],
   "rewrites": [
     { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" }  // Ensure correct path
+    { "source": "/sitemap.xml", "destination": "/public/sitemap.xml" }  
   ]
 }
