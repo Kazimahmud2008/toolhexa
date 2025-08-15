@@ -1,28 +1,24 @@
 {
   "redirects": [
     {
-      "source": "http://toolhexa.vercel.app/:path*",
+      "source": "/:path*",
+      "has": [
+        { "type": "protocol", "value": "http" }
+      ],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
     },
     {
-      "source": "https://www.toolhexa.vercel.app/:path*",
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.toolhexa.vercel.app" }
+      ],
       "destination": "https://toolhexa.vercel.app/:path*",
       "permanent": true
     }
   ],
   "rewrites": [
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/"
-    }
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" }
   ]
 }
