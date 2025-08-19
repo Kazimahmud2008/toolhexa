@@ -1,0 +1,9 @@
+# Redirect www to non-www (prevents 307/308 redirect loops)
+https://www.toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
+http://www.toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
+
+# Force HTTPS
+http://toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
+
+# SPA fallback
+/*    /index.html   200
