@@ -4,13 +4,19 @@
   "redirects": [
     {
       "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/(.*)",
       "has": [{ "type": "host", "value": "http://toolhexa.vercel.app" }],
       "destination": "https://toolhexa.vercel.app/:path*",
       "statusCode": 301
     },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "https://www.toolhexa.vercel.app" }],
+      "has": [{ "type": "host", "value": "http://www.toolhexa.vercel.app" }],
       "destination": "https://toolhexa.vercel.app/:path*",
       "statusCode": 301
     }
