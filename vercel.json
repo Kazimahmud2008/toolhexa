@@ -1,26 +1,8 @@
 {
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.toolhexa.vercel.app" }],
-      "destination": "https://toolhexa.vercel.app/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "toolhexa.vercel.app" }],
-      "destination": "https://toolhexa.vercel.app/:path*",
-      "statusCode": 301
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "https://www.toolhexa.vercel.app" }],
-      "destination": "https://toolhexa.vercel.app/:path*",
-      "statusCode": 301
-    }
-  ],
   "rewrites": [
-    { "source": "/:path*", "destination": "/index.html" }
+
+    { "source": "/:path((?!sitemap.xml|robots.txt).*)*", "destination": "/index.html" }
   ]
 }
+
 
