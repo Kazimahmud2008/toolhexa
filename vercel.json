@@ -33,6 +33,13 @@
       "destination": "https://toolhexa.vercel.app/:path*",
       "statusCode": 301
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
   ]
 }
+
 
