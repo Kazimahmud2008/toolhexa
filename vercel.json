@@ -1,4 +1,8 @@
+
 {
+"rewrites": [
+    { "source": "/:path((?!sitemap.xml|robots.txt).*)*", "destination": "/index.html" }
+  ]
   "redirects": [
     {
       "source": "/(.*)",
