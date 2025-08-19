@@ -1,8 +1,21 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "http://toolhexa.vercel.app" }],
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "statusCode": 301
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "https://www.toolhexa.vercel.app" }],
+      "destination": "https://toolhexa.vercel.app/:path*",
+      "statusCode": 301
+    }
+  ],
   "rewrites": [
-
-    { "source": "/:path((?!sitemap.xml|robots.txt).*)*", "destination": "/index.html" }
+    { "source": "/:path*", "destination": "/index.html" }
   ]
 }
-
-
