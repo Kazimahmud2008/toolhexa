@@ -16,7 +16,7 @@
       "has": [
         {
           "type": "host",
-          "value": "http://toolhexa.vercel.app"
+          "value": "toolhexa.vercel.app"
         }
       ],
       "destination": "https://toolhexa.vercel.app/:path*",
@@ -41,6 +41,3 @@
     }
   ]
 }
-
-
-
