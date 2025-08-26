@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SearchBar from '@/components/SearchBar';
@@ -16,7 +17,6 @@ const Tools = () => {
   const filteredAndSortedTools = useMemo(() => {
     let filtered = tools;
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter(tool =>
@@ -26,7 +26,6 @@ const Tools = () => {
       );
     }
 
-    // Filter by category
     if (selectedCategory !== 'all') {
       const categoryName = categories.find(cat => cat.id === selectedCategory)?.name;
       if (categoryName) {
@@ -34,10 +33,8 @@ const Tools = () => {
       }
     }
 
-    // Sort tools
     filtered.sort((a, b) => {
       let comparison = 0;
-      
       switch (sortBy) {
         case 'name':
           comparison = a.name.localeCompare(b.name);
@@ -59,20 +56,14 @@ const Tools = () => {
           }
           break;
       }
-
       return sortOrder === 'desc' ? -comparison : comparison;
     });
 
     return filtered;
   }, [searchQuery, selectedCategory, sortBy, sortOrder]);
 
-  const handleSearch = (query: string) => {
-    setSearchQuery(query);
-  };
-
-  const toggleSortOrder = () => {
-    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
-  };
+  const handleSearch = (query: string) => setSearchQuery(query);
+  const toggleSortOrder = () => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
 
   return (
     <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
@@ -89,16 +80,12 @@ const Tools = () => {
 
         {/* Search and Filters */}
         <div className="space-y-6 mb-12">
-          {/* Search Bar */}
           <SearchBar
             onSearch={handleSearch}
             placeholder="Search tools by name, description, or keywords..."
             className="max-w-4xl mx-auto"
           />
-
-          {/* Filters and Controls */}
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
-            {/* Category Filter */}
             <div className="flex flex-wrap gap-2">
               <Button
                 variant={selectedCategory === 'all' ? 'default' : 'outline'}
@@ -107,28 +94,26 @@ const Tools = () => {
               >
                 All Tools
               </Button>
-              {categories.map((category) => (
+              {categories.map(cat => (
                 <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? 'default' : 'outline'}
+                  key={cat.id}
+                  variant={selectedCategory === cat.id ? 'default' : 'outline'}
                   size="sm"
-                  onClick={() => setSelectedCategory(category.id)}
+                  onClick={() => setSelectedCategory(cat.id)}
                 >
-                  {category.name}
+                  {cat.name}
                   <Badge variant="secondary" className="ml-2">
-                    {category.count}
+                    {cat.count}
                   </Badge>
                 </Button>
               ))}
             </div>
 
-            {/* Sort and View Controls */}
             <div className="flex items-center space-x-4">
-              {/* Sort Controls */}
               <div className="flex items-center space-x-2">
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
+                  onChange={e => setSortBy(e.target.value)}
                   className="px-3 py-2 bg-card border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="popular">Popular</option>
@@ -137,20 +122,10 @@ const Tools = () => {
                   <option value="rating">Rating</option>
                   <option value="usage">Usage</option>
                 </select>
-                <Button
-                  variant="outline"
-                  size="icon"
-                  onClick={toggleSortOrder}
-                >
-                  {sortOrder === 'desc' ? (
-                    <SortDesc className="h-4 w-4" />
-                  ) : (
-                    <SortAsc className="h-4 w-4" />
-                  )}
+                <Button variant="outline" size="icon" onClick={toggleSortOrder}>
+                  {sortOrder === 'desc' ? <SortDesc className="h-4 w-4" /> : <SortAsc className="h-4 w-4" />}
                 </Button>
               </div>
-
-              {/* View Mode Toggle */}
               <div className="flex items-center space-x-1 bg-muted rounded-lg p-1">
                 <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}
@@ -184,39 +159,28 @@ const Tools = () => {
 
         {/* Tools Grid/List */}
         {filteredAndSortedTools.length > 0 ? (
-          <div className={
-            viewMode === 'grid'
-              ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
-              : 'space-y-4'
-          }>
-            {filteredAndSortedTools.map((tool) => (
-              <ToolCard
-                key={tool.id}
-                id={tool.id}
-                name={tool.name}
-                description={tool.description}
-                category={tool.category}
-                icon={<tool.icon className="h-6 w-6 text-white" />}
-                popular={tool.popular}
-                rating={tool.rating}
-                usage={tool.usage}
-              />
+          <div className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6' : 'space-y-4'}>
+            {filteredAndSortedTools.map(tool => (
+              <Link key={tool.id} to={`/tools/${tool.id}`}>
+                <ToolCard
+                  id={tool.id}
+                  name={tool.name}
+                  description={tool.description}
+                  category={tool.category}
+                  icon={<tool.icon className="h-6 w-6 text-white" />}
+                  popular={tool.popular}
+                  rating={tool.rating}
+                  usage={tool.usage}
+                />
+              </Link>
             ))}
           </div>
         ) : (
           <div className="text-center py-20">
             <Filter className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
             <h3 className="text-2xl font-semibold mb-2">No tools found</h3>
-            <p className="text-muted-foreground mb-6">
-              Try adjusting your search query or category filter
-            </p>
-            <Button
-              variant="outline"
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('all');
-              }}
-            >
+            <p className="text-muted-foreground mb-6">Try adjusting your search query or category filter</p>
+            <Button variant="outline" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
               Clear Filters
             </Button>
           </div>
