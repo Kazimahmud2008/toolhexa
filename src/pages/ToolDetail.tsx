@@ -7,10 +7,10 @@ import ToolCard from '@/components/ToolCard';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, ExternalLink } from 'lucide-react';
 
-// Import your tool components here
+// Import all your tool components
 import JSONFormatter from '@/components/tools/JSONFormatter';
 import Base64Encoder from '@/components/tools/Base64Encoder';
-// ... (all other tool imports)
+// ... add other tool imports here
 
 const ToolDetail = () => {
   const { toolId } = useParams<{ toolId: string }>();
@@ -44,7 +44,7 @@ const ToolDetail = () => {
     switch (tool.id) {
       case 'json-formatter': return <JSONFormatter />;
       case 'base64-encoder': return <Base64Encoder />;
-      // ... add all tool cases
+      // ... add all other tool cases
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
@@ -140,17 +140,18 @@ const ToolDetail = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
               {relatedTools.map(rt => (
-                <ToolCard
-                  key={rt.id}
-                  id={rt.id}
-                  name={rt.name}
-                  description={rt.description}
-                  category={rt.category}
-                  icon={<rt.icon className="h-6 w-6 text-white" />}
-                  popular={rt.popular}
-                  rating={rt.rating}
-                  usage={rt.usage}
-                />
+                <Link key={rt.id} to={`/tools/${rt.id}`}>
+                  <ToolCard
+                    id={rt.id}
+                    name={rt.name}
+                    description={rt.description}
+                    category={rt.category}
+                    icon={<rt.icon className="h-6 w-6 text-white" />}
+                    popular={rt.popular}
+                    rating={rt.rating}
+                    usage={rt.usage}
+                  />
+                </Link>
               ))}
             </div>
 
