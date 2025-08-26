@@ -4,10 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
-import JSONFormatter from '@/components/tools/JSONFormatter';
-// ... (সব import আগের মতোই থাকবে)
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, ExternalLink } from 'lucide-react';
+
+// Import your tool components here
+import JSONFormatter from '@/components/tools/JSONFormatter';
+import Base64Encoder from '@/components/tools/Base64Encoder';
+// ... (all other tool imports)
 
 const ToolDetail = () => {
   const { toolId } = useParams<{ toolId: string }>();
@@ -32,15 +35,16 @@ const ToolDetail = () => {
     );
   }
 
+  // Related tools (same category)
   const relatedTools = tools
     .filter(t => t.category === tool.category && t.id !== tool.id)
     .slice(0, 5);
 
   const renderToolComponent = () => {
     switch (tool.id) {
-      case 'json-formatter':
-        return <JSONFormatter />;
-      // ... (all other tool cases remain the same)
+      case 'json-formatter': return <JSONFormatter />;
+      case 'base64-encoder': return <Base64Encoder />;
+      // ... add all tool cases
       default:
         return (
           <div className="max-w-4xl mx-auto p-6 text-center">
@@ -63,15 +67,6 @@ const ToolDetail = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Breadcrumbs for internal links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <nav className="text-sm text-muted-foreground mb-4">
-          <Link to="/" className="hover:underline">Home</Link> /{" "}
-          <Link to="/tools" className="hover:underline">Tools</Link> /{" "}
-          <span className="text-primary">{tool.name}</span>
-        </nav>
-      </div>
-
       {/* Header */}
       <div className="bg-gradient-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -96,9 +91,7 @@ const ToolDetail = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="secondary">{tool.category}</Badge>
-                  {tool.subcategory && (
-                    <Badge variant="outline">{tool.subcategory}</Badge>
-                  )}
+                  {tool.subcategory && <Badge variant="outline">{tool.subcategory}</Badge>}
                   {tool.popular && (
                     <Badge className="bg-gradient-primary text-white">
                       <Star className="h-3 w-3 mr-1 fill-current" />
@@ -130,12 +123,50 @@ const ToolDetail = () => {
       </div>
 
       {/* Tool Component */}
-      <div className="py-8">
-        {renderToolComponent()}
-      </div>
+      <div className="py-8">{renderToolComponent()}</div>
 
-      {/* Related Tools */}
+      {/* Related Tools Section */}
       {relatedTools.length > 0 && (
         <div className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/20">
           <div className="max-w-7xl mx-auto">
-            <div
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">
+                Related <span className="text-primary">Tools</span>
+              </h2>
+              <p className="text-muted-foreground">
+                Other tools in the {tool.category} category
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+              {relatedTools.map(rt => (
+                <ToolCard
+                  key={rt.id}
+                  id={rt.id}
+                  name={rt.name}
+                  description={rt.description}
+                  category={rt.category}
+                  icon={<rt.icon className="h-6 w-6 text-white" />}
+                  popular={rt.popular}
+                  rating={rt.rating}
+                  usage={rt.usage}
+                />
+              ))}
+            </div>
+
+            <div className="text-center mt-8">
+              <Link to={`/categories/${tool.category.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Button variant="outline">
+                  View All {tool.category}
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ToolDetail;
