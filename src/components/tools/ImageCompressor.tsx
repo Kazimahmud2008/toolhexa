@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Slider } from '@/components/ui/slider';
 import { Upload, Download, Image as ImageIcon, Trash2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { Helmet } from 'react-helmet'; // ✅ For SEO meta tags and canonical
+import { Link } from 'react-router-dom'; // ✅ outgoing link
 
 const ImageCompressor = () => {
   const [originalImage, setOriginalImage] = useState<File | null>(null);
@@ -26,7 +26,7 @@ const ImageCompressor = () => {
       toast({
         title: "Invalid file",
         description: "Please select a valid image file",
-        variant: "destructive",
+        variant: "destructive"
       });
     }
   };
@@ -70,7 +70,7 @@ const ImageCompressor = () => {
 
       toast({
         title: "Downloaded!",
-        description: "Compressed image has been downloaded",
+        description: "Compressed image has been downloaded"
       });
     }
   };
@@ -94,41 +94,22 @@ const ImageCompressor = () => {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   };
 
-  const compressionRatio =
-    originalSize > 0
-      ? ((originalSize - compressedSize) / originalSize * 100).toFixed(1)
-      : 0;
+  const compressionRatio = originalSize > 0 ? ((originalSize - compressedSize) / originalSize * 100).toFixed(1) : 0;
 
   return (
     <>
-      {/* ✅ SEO FIX: Canonical, Title, Meta Description, OG tags */}
-      <Helmet>
-        <title>Free Online Image Compressor | ToolHexa</title>
-        <meta
-          name="description"
-          content="Compress images online for free with ToolHexa. Reduce image size while keeping quality. Works with JPG, PNG, and WebP."
-        />
-        <link
-          rel="canonical"
-          href="https://www.toolhexa.com/tools/image-compressor"
-        />
-        <meta property="og:title" content="Free Online Image Compressor | ToolHexa" />
-        <meta
-          property="og:description"
-          content="Easily compress your images online with ToolHexa. Fast, free, and high-quality image compression."
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://www.toolhexa.com/tools/image-compressor"
-        />
-      </Helmet>
+      {/* ✅ Canonical tag */}
+      <link rel="canonical" href="https://yourdomain.com/tools/image-compressor/" />
 
       <div className="max-w-6xl mx-auto p-6 space-y-6">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-4">Image Compressor</h1>
           <p className="text-muted-foreground">
-            Compress images to reduce file size while maintaining quality.
+            Compress images to reduce file size while maintaining quality
+          </p>
+          {/* ✅ Outgoing link */}
+          <p>
+            Explore more tools: <Link to="/tools/">All Tools</Link>
           </p>
         </div>
 
@@ -180,28 +161,16 @@ const ImageCompressor = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
                   <div className="p-4 bg-muted rounded-lg">
-                    <div className="text-2xl font-bold text-primary">
-                      {formatFileSize(originalSize)}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Original Size
-                    </div>
+                    <div className="text-2xl font-bold text-primary">{formatFileSize(originalSize)}</div>
+                    <div className="text-sm text-muted-foreground">Original Size</div>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
-                    <div className="text-2xl font-bold text-primary">
-                      {formatFileSize(compressedSize)}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Compressed Size
-                    </div>
+                    <div className="text-2xl font-bold text-primary">{formatFileSize(compressedSize)}</div>
+                    <div className="text-sm text-muted-foreground">Compressed Size</div>
                   </div>
                   <div className="p-4 bg-muted rounded-lg">
-                    <div className="text-2xl font-bold text-green-600">
-                      {compressionRatio}%
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      Size Reduction
-                    </div>
+                    <div className="text-2xl font-bold text-green-600">{compressionRatio}%</div>
+                    <div className="text-sm text-muted-foreground">Size Reduction</div>
                   </div>
                 </div>
 
@@ -251,24 +220,6 @@ const ImageCompressor = () => {
             </Card>
           </div>
         )}
-
-        {/* ✅ Outgoing & Internal Link for SEO */}
-        <div className="text-center mt-8">
-          <p className="text-sm">
-            Want more free tools? Try our{" "}
-            <a
-              href="/tools/pdf-compressor"
-              className="text-blue-600 underline"
-            >
-              PDF Compressor
-            </a>{" "}
-            or{" "}
-            <a href="/tools/image-resizer" className="text-blue-600 underline">
-              Image Resizer
-            </a>
-            .
-          </p>
-        </div>
       </div>
     </>
   );
