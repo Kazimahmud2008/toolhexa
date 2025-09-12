@@ -95,6 +95,9 @@ const Home = () => {
               </Button>
             </Link>
           </div>
+          <div className="mt-4 text-sm text-muted-foreground">
+            Also see our <Link to="/blog" className="text-primary hover:underline">developer blog</Link> and <Link to="/products" className="text-primary hover:underline">premium tools</Link>.
+          </div>
         </div>
       </section>
 

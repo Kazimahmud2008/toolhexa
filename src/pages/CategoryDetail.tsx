@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
 import SearchBar from '@/components/SearchBar';
+import SEOHead from '@/components/SEOHead';
 import { tools, categories } from '@/data/tools';
 import { ArrowLeft, Grid3X3, List, Search, Filter } from 'lucide-react';
 
@@ -65,13 +66,21 @@ const CategoryDetail = () => {
     return sortOrder === 'asc' ? comparison : -comparison;
   });
 
+  const sampleTools = sortedTools.slice(0, 2);
+
   const handleSearch = (query: string) => {
     setSearchQuery(query);
   };
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
+    <>
+      <SEOHead 
+        title={`${category.name} Tools - Toolhexa`}
+        description={`${category.description} Explore curated ${category.name.toLowerCase()} utilities, examples, and best practices.`}
+        canonicalUrl={`/categories/${category.id}`}
+        keywords={[category.name.toLowerCase(), 'developer tools', 'category', 'free tools']}
+      />
+      <div className="min-h-screen">
       <div className="bg-gradient-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex items-center space-x-4 mb-6">
@@ -106,6 +115,29 @@ const CategoryDetail = () => {
           </div>
         </div>
       </div>
+
+      {/* About Category (SEO text) */}
+      <section className="px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-4xl mx-auto text-muted-foreground">
+          <p className="mb-3">
+            {category.name} helps developers accomplish specialized tasks efficiently. This curated set of tools is designed to run entirely in your browser for speed and privacy. Whether you are quickly validating data, generating CSS snippets, optimizing images, or checking accessibility, these utilities remove repetitive steps from your workflow so you can focus on shipping features. Each tool is crafted to be intuitive, fast, and reliable with clean interfaces and helpful defaults.
+          </p>
+          <p className="mb-3">
+            To explore the full library, visit the <Link to="/tools" className="text-primary hover:underline">Tools directory</Link> or browse other <Link to="/categories" className="text-primary hover:underline">categories</Link>. {sampleTools.length > 0 && (
+              <>
+                You can also try <Link to={`/tools/${sampleTools[0].id}`} className="text-primary hover:underline">{sampleTools[0].name}</Link>
+                {sampleTools.length > 1 && (
+                  <> and <Link to={`/tools/${sampleTools[1].id}`} className="text-primary hover:underline">{sampleTools[1].name}</Link></>
+                )}
+                {'.'}
+              </>
+            )}
+          </p>
+          <p>
+            Tip: Bookmark your most-used tools and share direct links with teammates. All utilities are free and require no sign-up.
+          </p>
+        </div>
+      </section>
 
       {/* Tools Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -178,17 +210,18 @@ const CategoryDetail = () => {
               : "grid grid-cols-1 gap-4"
           }>
             {sortedTools.map((tool) => (
-              <ToolCard
-                key={tool.id}
-                id={tool.id}
-                name={tool.name}
-                description={tool.description}
-                category={tool.category}
-                icon={<tool.icon className="h-6 w-6 text-white" />}
-                popular={tool.popular}
-                rating={tool.rating}
-                usage={tool.usage}
-              />
+              <Link key={tool.id} to={`/tools/${tool.id}`}>
+                <ToolCard
+                  id={tool.id}
+                  name={tool.name}
+                  description={tool.description}
+                  category={tool.category}
+                  icon={<tool.icon className="h-6 w-6 text-white" />}
+                  popular={tool.popular}
+                  rating={tool.rating}
+                  usage={tool.usage}
+                />
+              </Link>
             ))}
           </div>
         ) : (

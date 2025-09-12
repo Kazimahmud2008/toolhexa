@@ -19,12 +19,13 @@ const Footer = () => {
       { name: 'Color Tools', href: '/categories/color' },
     ],
     'Resources': [
+      { name: 'Home', href: '/' },
       { name: 'All Tools', href: '/tools' },
       { name: 'Browse Categories', href: '/categories' },
+      { name: 'Products', href: '/products' },
       { name: 'Blog', href: '/blog' },
-      { name: 'Developer Tools', href: '/tools' },
     ],
-  };
+  } as const;
 
   return (
     <footer className="bg-card border-t border-border mt-20">
