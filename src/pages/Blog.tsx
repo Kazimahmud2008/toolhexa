@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import SEOHead from '@/components/SEOHead';
 import { Calendar, Clock, User, ArrowRight, TrendingUp } from 'lucide-react';
 
 const Blog = () => {
@@ -100,7 +101,14 @@ const Blog = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="Developer Blog - Tips, Tutorials & Best Practices"
+        description="Read the latest developer insights, tool tutorials, and programming best practices. Stay updated with modern web development techniques and workflow optimization tips."
+        canonicalUrl="/blog"
+        keywords={['developer blog', 'programming tutorials', 'web development', 'coding tips', 'developer insights']}
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
@@ -109,7 +117,7 @@ const Blog = () => {
             Developer <span className="neon-text">Insights</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Stay updated with the latest developer tools, best practices, and industry insights from our expert team
+            Stay updated with the latest developer tools, programming best practices, and industry insights from our expert team. Discover tutorials, tips, and techniques to improve your development workflow and master modern web technologies.
           </p>
           <div className="flex items-center justify-center space-x-2 text-white/80">
             <TrendingUp className="h-5 w-5" />
@@ -186,7 +194,7 @@ const Blog = () => {
                   Latest <span className="text-primary">Articles</span>
                 </h2>
                 <p className="text-muted-foreground">
-                  Discover insights, tutorials, and best practices from our development team
+                  Discover comprehensive guides, tutorials, and best practices from our development team. Each article is crafted to help you master modern development tools, improve your workflow, and stay current with industry trends. From beginner-friendly tutorials to advanced techniques, find content that matches your skill level.
                 </p>
               </div>
 
@@ -306,6 +314,7 @@ const Blog = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

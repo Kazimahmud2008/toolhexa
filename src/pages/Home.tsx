@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import SearchBar from '@/components/SearchBar';
 import ToolCard from '@/components/ToolCard';
+import SEOHead from '@/components/SEOHead';
 import { tools, categories, getPopularTools } from '@/data/tools';
 import { ArrowRight, Zap, Users, Star, TrendingUp, Shield } from 'lucide-react';
 
@@ -18,7 +19,14 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="Toolhexa - Professional Developer Tools & Utilities"
+        description="55+ free browser-based developer tools for modern workflows. JSON formatter, CSS generators, image converters, and more. No installs required."
+        canonicalUrl="/"
+        keywords={['developer tools', 'JSON formatter', 'CSS generator', 'web tools', 'programming utilities', 'free tools']}
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
@@ -38,11 +46,11 @@ const Home = () => {
           
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-8 tracking-tight antialiased">
             <span className="bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-              Modern Tools for
+              Professional Developer Tools
             </span>
             <br />
             <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent font-bold antialiased" style={{ textRendering: 'optimizeLegibility' }}>
-              Smart Developers
+              for Modern Workflows
             </span>
           </h1>
           
@@ -98,7 +106,7 @@ const Home = () => {
               Categories
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Professional tools organized by functionality
+              Professional tools organized by functionality to streamline your development process. Whether you're working with data formats, styling CSS, processing images, or validating code, find the right category for your needs.
             </p>
           </div>
 
@@ -153,7 +161,7 @@ const Home = () => {
               </h2>
             </div>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Most used by developers worldwide
+              Most used tools by developers worldwide. These battle-tested utilities have helped millions of developers save time and improve their workflow efficiency across various programming languages and frameworks.
             </p>
           </div>
 
@@ -192,7 +200,7 @@ const Home = () => {
               Why Choose Toolhexa?
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Professional tools designed for productivity
+              Professional tools designed for maximum productivity and reliability. Our platform combines cutting-edge technology with user-friendly design to deliver the best developer experience possible.
             </p>
           </div>
 
@@ -264,7 +272,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 };
 

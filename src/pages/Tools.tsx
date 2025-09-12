@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SearchBar from '@/components/SearchBar';
 import ToolCard from '@/components/ToolCard';
+import SEOHead from '@/components/SEOHead';
 import { tools, categories } from '@/data/tools';
 import { Filter, Grid, List, SortAsc, SortDesc } from 'lucide-react';
 
@@ -66,16 +67,41 @@ const Tools = () => {
   const toggleSortOrder = () => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
+    <>
+      <SEOHead 
+        title="All Developer Tools - Toolhexa Collection"
+        description="Browse 55+ professional developer tools including JSON formatter, CSS generators, image converters, password generators, and code validators. All free to use."
+        canonicalUrl="/tools"
+        keywords={['developer tools', 'programming utilities', 'JSON formatter', 'CSS tools', 'code tools', 'web development']}
+      />
+      <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Developer <span className="text-primary">Tools</span>
+            All Developer <span className="text-primary">Tools</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Discover all {tools.length} tools to supercharge your development workflow
+            Discover all {tools.length} professional developer tools designed to supercharge your development workflow. From data processing and code formatting to image optimization and security utilities, find everything you need in one place. Each tool is carefully crafted to save you time and improve your productivity.
           </p>
+          
+          {/* Additional SEO Content */}
+          <div className="mt-8 max-w-4xl mx-auto text-muted-foreground">
+            <p className="mb-4">
+              Our comprehensive collection covers every aspect of modern web development. Whether you're working with APIs and need JSON formatting, designing interfaces and require CSS generators, or optimizing assets with image tools, we've got you covered. All tools run in your browser for maximum security and performance.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <Link to="/categories/text" className="hover:text-primary transition-colors">Text Processing Tools</Link>
+              <span>•</span>
+              <Link to="/categories/css" className="hover:text-primary transition-colors">CSS Generators</Link>
+              <span>•</span>
+              <Link to="/categories/image" className="hover:text-primary transition-colors">Image Utilities</Link>
+              <span>•</span>
+              <Link to="/categories/color" className="hover:text-primary transition-colors">Color Tools</Link>
+              <span>•</span>
+              <Link to="/categories/security" className="hover:text-primary transition-colors">Security Utilities</Link>
+            </div>
+          </div>
         </div>
 
         {/* Search and Filters */}
@@ -185,8 +211,9 @@ const Tools = () => {
             </Button>
           </div>
         )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

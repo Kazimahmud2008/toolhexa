@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
+import SEOHead from '@/components/SEOHead';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, ExternalLink } from 'lucide-react';
 
@@ -66,7 +67,15 @@ const ToolDetail = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title={tool ? `${tool.name} - Free Online Tool | Toolhexa` : 'Tool Not Found'}
+        description={tool ? `Use our free ${tool.name} tool online. ${tool.description} No installation required, works in your browser.` : 'The requested tool was not found.'}
+        canonicalUrl={tool ? `/tools/${tool.id}` : '/tools'}
+        keywords={tool ? [tool.name.toLowerCase(), tool.category.toLowerCase(), 'online tool', 'free tool'] : []}
+        noIndex={!tool}
+      />
+      <div className="min-h-screen">
       {/* Header */}
       <div className="bg-gradient-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -166,7 +175,8 @@ const ToolDetail = () => {
           </div>
         </div>
       )}
-    </div>
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,82 @@
+import { Helmet } from 'react-helmet-async';
+
+interface SEOHeadProps {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  keywords?: string[];
+  noIndex?: boolean;
+}
+
+const SEOHead = ({ 
+  title, 
+  description, 
+  canonicalUrl, 
+  ogImage = 'https://toolhexa.vercel.app/og-image.jpg',
+  ogType = 'website',
+  keywords = [],
+  noIndex = false
+}: SEOHeadProps) => {
+  const siteUrl = 'https://toolhexa.vercel.app';
+  const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
+  
+  // Truncate title and description for optimal SEO
+  const truncatedTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
+  const truncatedDescription = description.length > 160 ? description.substring(0, 157) + '...' : description;
+  
+  return (
+    <Helmet>
+      {/* Primary Meta Tags */}
+      <title>{truncatedTitle}</title>
+      <meta name="title" content={truncatedTitle} />
+      <meta name="description" content={truncatedDescription} />
+      {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+      
+      {/* Canonical URL */}
+      <link rel="canonical" href={fullCanonicalUrl} />
+      
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={fullCanonicalUrl} />
+      <meta property="og:title" content={truncatedTitle} />
+      <meta property="og:description" content={truncatedDescription} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:site_name" content="Toolhexa" />
+      
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={fullCanonicalUrl} />
+      <meta property="twitter:title" content={truncatedTitle} />
+      <meta property="twitter:description" content={truncatedDescription} />
+      <meta property="twitter:image" content={ogImage} />
+      
+      {/* Additional SEO Tags */}
+      <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
+      <meta name="googlebot" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
+      <meta name="author" content="Toolhexa" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta name="language" content="English" />
+      
+      {/* Structured Data */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Toolhexa",
+          "url": siteUrl,
+          "description": "Professional developer tools for modern workflows. Fast, secure, and always free.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": `${siteUrl}/tools?search={search_term_string}`,
+            "query-input": "required name=search_term_string"
+          }
+        })}
+      </script>
+    </Helmet>
+  );
+};
+
+export default SEOHead;

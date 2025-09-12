@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import SEOHead from '@/components/SEOHead';
 import { Check, Star, Zap, Shield, Users, Smartphone } from 'lucide-react';
 
 const Products = () => {
@@ -90,7 +91,14 @@ const Products = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <SEOHead 
+        title="Premium Developer Tools & Plans - Toolhexa Pro"
+        description="Upgrade to Toolhexa Pro for advanced developer tools, API access, bulk processing, and premium features. Plans start at $9.99/month with 14-day free trial."
+        canonicalUrl="/products"
+        keywords={['developer tools pricing', 'premium tools', 'developer subscriptions', 'pro tools', 'team tools']}
+      />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
@@ -99,15 +107,17 @@ const Products = () => {
             Supercharge Your <span className="neon-text">Development</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Choose the perfect plan to unlock the full potential of ToolVibe's developer tools
+            Choose the perfect plan to unlock the full potential of Toolhexa's professional developer tools. From basic utilities to advanced automation and team collaboration features, we have plans designed for individual developers, teams, and enterprises. Start with our free tools or upgrade for enhanced capabilities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="glass" size="hero" className="text-white border-white/30 hover:bg-white/20">
               Start Free Trial
             </Button>
-            <Button variant="outline" size="hero" className="text-white border-white hover:bg-white hover:text-primary">
-              View All Tools
-            </Button>
+            <Link to="/tools">
+              <Button variant="outline" size="hero" className="text-white border-white hover:bg-white hover:text-primary">
+                View All Tools
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -261,6 +271,7 @@ const Products = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 
