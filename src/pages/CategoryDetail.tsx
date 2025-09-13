@@ -243,6 +243,7 @@ const CategoryDetail = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
