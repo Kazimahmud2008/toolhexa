@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import SearchBar from '@/components/SearchBar';
 import ToolCard from '@/components/ToolCard';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
 import { tools, categories } from '@/data/tools';
 import { Filter, Grid, List, SortAsc, SortDesc } from 'lucide-react';
 
@@ -70,12 +71,18 @@ const Tools = () => {
     <>
       <SEOHead 
         title="All Developer Tools - Toolhexa Collection"
-        description="Browse 55+ professional developer tools including JSON formatter, CSS generators, image converters, password generators, and code validators. All free to use."
+        description="Browse 55+ professional developer tools including JSON formatter, CSS generators, image converters & password generators. All free."
         canonicalUrl="/tools"
         keywords={['developer tools', 'programming utilities', 'JSON formatter', 'CSS tools', 'code tools', 'web development']}
       />
       <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
+        {/* Breadcrumb */}
+        <Breadcrumb 
+          items={[{ label: 'Tools' }]}
+          className="mb-6"
+        />
+        
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -88,7 +95,7 @@ const Tools = () => {
           {/* Additional SEO Content */}
           <div className="mt-8 max-w-4xl mx-auto text-muted-foreground">
             <p className="mb-4">
-              Our comprehensive collection covers every aspect of modern web development. Whether you're working with APIs and need JSON formatting, designing interfaces and require CSS generators, or optimizing assets with image tools, we've got you covered. All tools run in your browser for maximum security and performance.
+              Our comprehensive collection covers every aspect of modern web development. Whether you're working with APIs and need <Link to="/tools/json-formatter" className="text-primary hover:underline">JSON formatting</Link>, designing interfaces and require <Link to="/tools/css-gradient-generator" className="text-primary hover:underline">CSS generators</Link>, or optimizing assets with <Link to="/tools/image-compressor" className="text-primary hover:underline">image tools</Link>, we've got you covered. All tools run in your browser for maximum security and performance.
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
               <Link to="/categories/text" className="hover:text-primary transition-colors">Text Processing Tools</Link>
@@ -100,6 +107,25 @@ const Tools = () => {
               <Link to="/categories/color" className="hover:text-primary transition-colors">Color Tools</Link>
               <span>•</span>
               <Link to="/categories/security" className="hover:text-primary transition-colors">Security Utilities</Link>
+              <span>•</span>
+              <Link to="/tools/password-generator" className="hover:text-primary transition-colors">Password Generator</Link>
+              <span>•</span>
+              <Link to="/tools/qr-code-generator" className="hover:text-primary transition-colors">QR Code Generator</Link>
+            </div>
+            
+            {/* Popular Tools Section */}
+            <div className="mt-8 p-6 bg-muted/20 rounded-lg">
+              <h3 className="text-lg font-semibold mb-4 text-foreground">Most Popular Developer Tools</h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <Link to="/tools/json-formatter" className="text-primary hover:underline">JSON Formatter & Validator</Link>
+                <Link to="/tools/base64-encoder" className="text-primary hover:underline">Base64 Encoder/Decoder</Link>
+                <Link to="/tools/css-minifier" className="text-primary hover:underline">CSS Minifier & Formatter</Link>
+                <Link to="/tools/password-generator" className="text-primary hover:underline">Secure Password Generator</Link>
+                <Link to="/tools/image-compressor" className="text-primary hover:underline">Image Compression Tool</Link>
+                <Link to="/tools/color-picker" className="text-primary hover:underline">Color Picker & Converter</Link>
+                <Link to="/tools/qr-code-generator" className="text-primary hover:underline">QR Code Generator</Link>
+                <Link to="/tools/url-encoder" className="text-primary hover:underline">URL Encoder/Decoder</Link>
+              </div>
             </div>
           </div>
         </div>

@@ -21,8 +21,8 @@ const Home = () => {
   return (
     <>
       <SEOHead 
-        title="Toolhexa - Professional Developer Tools & Utilities"
-        description="55+ free browser-based developer tools for modern workflows. JSON formatter, CSS generators, image converters, and more. No installs required."
+        title="Toolhexa - Professional Developer Tools"
+        description="55+ free browser-based developer tools. JSON formatter, CSS generators, image converters & more. No installs required."
         canonicalUrl="/"
         keywords={['developer tools', 'JSON formatter', 'CSS generator', 'web tools', 'programming utilities', 'free tools']}
       />
@@ -97,6 +97,19 @@ const Home = () => {
           </div>
           <div className="mt-4 text-sm text-muted-foreground">
             Also see our <Link to="/blog" className="text-primary hover:underline">developer blog</Link> and <Link to="/products" className="text-primary hover:underline">premium tools</Link>.
+          </div>
+          
+          {/* Quick Links */}
+          <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm">
+            <Link to="/tools/json-formatter" className="text-primary hover:underline">JSON Formatter</Link>
+            <span>•</span>
+            <Link to="/tools/css-gradient-generator" className="text-primary hover:underline">CSS Gradient</Link>
+            <span>•</span>
+            <Link to="/tools/password-generator" className="text-primary hover:underline">Password Generator</Link>
+            <span>•</span>
+            <Link to="/tools/image-compressor" className="text-primary hover:underline">Image Compressor</Link>
+            <span>•</span>
+            <Link to="/tools/base64-encoder" className="text-primary hover:underline">Base64 Encoder</Link>
           </div>
         </div>
       </section>

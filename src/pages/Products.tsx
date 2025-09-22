@@ -94,7 +94,7 @@ const Products = () => {
     <>
       <SEOHead 
         title="Premium Developer Tools & Plans - Toolhexa Pro"
-        description="Upgrade to Toolhexa Pro for advanced developer tools, API access, bulk processing, and premium features. Plans start at $9.99/month with 14-day free trial."
+        description="Upgrade to Toolhexa Pro for advanced developer tools, API access & bulk processing. Plans start at $9.99/month with 14-day free trial."
         canonicalUrl="/products"
         keywords={['developer tools pricing', 'premium tools', 'developer subscriptions', 'pro tools', 'team tools']}
       />
@@ -107,7 +107,7 @@ const Products = () => {
             Supercharge Your <span className="neon-text">Development</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Choose the perfect plan to unlock the full potential of Toolhexa's professional developer tools. From basic utilities to advanced automation and team collaboration features, we have plans designed for individual developers, teams, and enterprises. Start with our free tools or upgrade for enhanced capabilities.
+            Choose the perfect plan to unlock the full potential of Toolhexa's professional developer tools. From basic utilities to advanced automation and team collaboration features, we have plans designed for individual developers, teams, and enterprises. Start with our <Link to="/tools" className="text-white/90 hover:text-white underline">free tools</Link> or upgrade for enhanced capabilities like <Link to="/tools/json-formatter" className="text-white/90 hover:text-white underline">advanced JSON processing</Link> and <Link to="/tools/css-gradient-generator" className="text-white/90 hover:text-white underline">premium CSS generators</Link>.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="glass" size="hero" className="text-white border-white/30 hover:bg-white/20">
@@ -130,7 +130,7 @@ const Products = () => {
               Choose Your <span className="text-primary">Plan</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Start free and upgrade as you grow. All plans include our core features.
+              Start free and upgrade as you grow. All plans include our core <Link to="/tools" className="text-primary hover:underline">developer tools</Link> with options for <Link to="/categories/css" className="text-primary hover:underline">advanced CSS features</Link>, <Link to="/categories/image" className="text-primary hover:underline">enhanced image processing</Link>, and <Link to="/categories/security" className="text-primary hover:underline">premium security tools</Link>.
             </p>
           </div>
 

@@ -23,8 +23,8 @@ const SEOHead = ({
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
   
   // Truncate title and description for optimal SEO
-  const truncatedTitle = title.length > 60 ? title.substring(0, 57) + '...' : title;
-  const truncatedDescription = description.length > 160 ? description.substring(0, 157) + '...' : description;
+  const truncatedTitle = title.length > 55 ? title.substring(0, 52) + '...' : title;
+  const truncatedDescription = description.length > 155 ? description.substring(0, 152) + '...' : description;
   
   return (
     <Helmet>
@@ -43,7 +43,11 @@ const SEOHead = ({
       <meta property="og:title" content={truncatedTitle} />
       <meta property="og:description" content={truncatedDescription} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={`${truncatedTitle} - Toolhexa`} />
       <meta property="og:site_name" content="Toolhexa" />
+      <meta property="og:locale" content="en_US" />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
@@ -51,6 +55,9 @@ const SEOHead = ({
       <meta property="twitter:title" content={truncatedTitle} />
       <meta property="twitter:description" content={truncatedDescription} />
       <meta property="twitter:image" content={ogImage} />
+      <meta property="twitter:image:alt" content={`${truncatedTitle} - Toolhexa`} />
+      <meta property="twitter:site" content="@toolhexa" />
+      <meta property="twitter:creator" content="@toolhexa" />
       
       {/* Additional SEO Tags */}
       <meta name="robots" content={noIndex ? 'noindex,nofollow' : 'index,follow'} />
@@ -75,6 +82,58 @@ const SEOHead = ({
           }
         })}
       </script>
+      
+      {/* Article structured data for blog posts */}
+      {ogType === 'article' && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": truncatedTitle,
+            "description": truncatedDescription,
+            "image": ogImage,
+            "url": fullCanonicalUrl,
+            "datePublished": new Date().toISOString(),
+            "dateModified": new Date().toISOString(),
+            "author": {
+              "@type": "Organization",
+              "name": "Toolhexa"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Toolhexa",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${siteUrl}/logo.png`
+              }
+            }
+          })}
+        </script>
+      )}
+      
+      {/* Tool structured data */}
+      {canonicalUrl && canonicalUrl.startsWith('/tools/') && (
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": truncatedTitle,
+            "description": truncatedDescription,
+            "url": fullCanonicalUrl,
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Toolhexa"
+            }
+          })}
+        </script>
+      )}
     </Helmet>
   );
 };

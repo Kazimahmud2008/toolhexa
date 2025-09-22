@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
 import { categories, getToolsByCategory, tools } from '@/data/tools';
 import { ArrowRight, Filter } from 'lucide-react';
 
@@ -19,11 +20,19 @@ const Categories = () => {
     <>
       <SEOHead 
         title="Developer Tool Categories - Toolhexa"
-        description="Browse developer tools by category: Text processing, CSS generators, Image tools, Color utilities, Security tools, and more. Find the right tool for your task."
+        description="Browse developer tools by category: Text processing, CSS generators, Image tools, Color utilities & Security tools. Find the right tool."
         canonicalUrl="/categories"
         keywords={['developer categories', 'tool categories', 'CSS tools', 'text tools', 'image tools', 'color tools']}
       />
       <div className="min-h-screen">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Breadcrumb 
+          items={[{ label: 'Categories' }]}
+          className="mb-6"
+        />
+      </div>
+      
       {/* Hero Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-primary text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-glow opacity-20"></div>
@@ -32,7 +41,7 @@ const Categories = () => {
             Developer Tool <span className="neon-text">Categories</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-12 max-w-3xl mx-auto">
-            Discover our comprehensive collection of developer tools organized by category. From text processing and CSS generation to image manipulation and security utilities, find exactly what you need for your development workflow. Each category contains specialized tools designed for specific programming tasks and challenges.
+            Discover our comprehensive collection of developer tools organized by category. From <Link to="/categories/text" className="text-white/90 hover:text-white underline">text processing</Link> and <Link to="/categories/css" className="text-white/90 hover:text-white underline">CSS generation</Link> to <Link to="/categories/image" className="text-white/90 hover:text-white underline">image manipulation</Link> and <Link to="/categories/security" className="text-white/90 hover:text-white underline">security utilities</Link>, find exactly what you need for your development workflow. Each category contains specialized tools designed for specific programming tasks and challenges.
           </p>
           <div className="flex items-center justify-center space-x-2 text-white/80">
             <Filter className="h-5 w-5" />
@@ -48,9 +57,9 @@ const Categories = () => {
             <h2 className="text-4xl font-bold text-center mb-4">
               Browse by <span className="text-primary">Category</span>
             </h2>
-            <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
-              Each category contains specialized tools designed for specific development tasks. Whether you're formatting data, generating CSS, processing images, or securing applications, our organized approach helps you find the right utility quickly and efficiently.
-            </p>
+              <p className="text-xl text-muted-foreground text-center max-w-2xl mx-auto">
+                Each category contains specialized tools designed for specific development tasks. Whether you're <Link to="/tools/json-formatter" className="text-primary hover:underline">formatting JSON data</Link>, <Link to="/tools/css-gradient-generator" className="text-primary hover:underline">generating CSS gradients</Link>, <Link to="/tools/image-compressor" className="text-primary hover:underline">processing images</Link>, or <Link to="/tools/password-generator" className="text-primary hover:underline">securing applications</Link>, our organized approach helps you find the right utility quickly and efficiently.
+              </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16">
@@ -143,9 +152,9 @@ const Categories = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Can't Find What You Need?
           </h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Let us know what tools you'd like to see. We're always adding new categories and tools.
-          </p>
+            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
+              Let us know what tools you'd like to see. Check our <Link to="/tools" className="text-white hover:underline">current tools</Link> or <Link to="/blog" className="text-white hover:underline">developer blog</Link> for the latest updates. We're always adding new categories and tools.
+            </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/tools">
               <Button variant="glass" size="hero" className="text-white border-white/30 hover:bg-white/20">

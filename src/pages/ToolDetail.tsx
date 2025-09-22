@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import ToolCard from '@/components/ToolCard';
 import SEOHead from '@/components/SEOHead';
+import Breadcrumb from '@/components/Breadcrumb';
 import { tools } from '@/data/tools';
 import { ArrowLeft, Star, ExternalLink } from 'lucide-react';
 
@@ -70,12 +71,23 @@ const ToolDetail = () => {
     <>
       <SEOHead 
         title={tool ? `${tool.name} - Free Online Tool | Toolhexa` : 'Tool Not Found'}
-        description={tool ? `Use our free ${tool.name} tool online. ${tool.description} No installation required, works in your browser.` : 'The requested tool was not found.'}
+        description={tool ? `Use our free ${tool.name} tool online. ${tool.description.length > 100 ? tool.description.substring(0, 97) + '...' : tool.description} No installation required.` : 'Tool not found.'}
         canonicalUrl={tool ? `/tools/${tool.id}` : '/tools'}
         keywords={tool ? [tool.name.toLowerCase(), tool.category.toLowerCase(), 'online tool', 'free tool'] : []}
         noIndex={!tool}
       />
       <div className="min-h-screen">
+      {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <Breadcrumb 
+          items={[
+            { label: 'Tools', href: '/tools' },
+            { label: tool.name }
+          ]}
+          className="mb-6"
+        />
+      </div>
+      
       {/* Header */}
       <div className="bg-gradient-card border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -171,6 +183,15 @@ const ToolDetail = () => {
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
+            </div>
+            
+            {/* Additional Navigation */}
+            <div className="mt-12 text-center">
+              <p className="text-muted-foreground mb-6">
+                Explore more tools: <Link to="/tools" className="text-primary hover:underline">All Tools</Link> | 
+                <Link to="/categories" className="text-primary hover:underline ml-1">Categories</Link> | 
+                <Link to="/blog" className="text-primary hover:underline ml-1">Developer Blog</Link>
+              </p>
             </div>
           </div>
         </div>
