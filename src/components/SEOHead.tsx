@@ -23,8 +23,8 @@ const SEOHead = ({
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : siteUrl;
   
   // Truncate title and description for optimal SEO
-  const truncatedTitle = title.length > 55 ? title.substring(0, 52) + '...' : title;
-  const truncatedDescription = description.length > 155 ? description.substring(0, 152) + '...' : description;
+  const truncatedTitle = title.length > 58 ? title.substring(0, 55) + '...' : title;
+  const truncatedDescription = description.length > 158 ? description.substring(0, 155) + '...' : description;
   
   return (
     <Helmet>

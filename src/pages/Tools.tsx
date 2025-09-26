@@ -70,8 +70,8 @@ const Tools = () => {
   return (
     <>
       <SEOHead 
-        title="All Developer Tools - Toolhexa Collection"
-        description="Browse 55+ professional developer tools including JSON formatter, CSS generators, image converters & password generators. All free."
+        title="55+ Developer Tools - Toolhexa"
+        description="Complete collection of free developer tools. JSON formatters, CSS generators, image processors. Fast & secure."
         canonicalUrl="/tools"
         keywords={['developer tools', 'programming utilities', 'JSON formatter', 'CSS tools', 'code tools', 'web development']}
       />

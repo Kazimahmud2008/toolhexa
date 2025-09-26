@@ -21,8 +21,8 @@ const Home = () => {
   return (
     <>
       <SEOHead 
-        title="Toolhexa - Professional Developer Tools"
-        description="55+ free browser-based developer tools. JSON formatter, CSS generators, image converters & more. No installs required."
+        title="Professional Developer Tools - Toolhexa"
+        description="55+ free browser tools. JSON formatter, CSS generators, image converters & more. No installs. Fast & secure."
         canonicalUrl="/"
         keywords={['developer tools', 'JSON formatter', 'CSS generator', 'web tools', 'programming utilities', 'free tools']}
       />

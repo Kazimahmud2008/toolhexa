@@ -93,8 +93,8 @@ const Products = () => {
   return (
     <>
       <SEOHead 
-        title="Premium Developer Tools & Plans - Toolhexa Pro"
-        description="Upgrade to Toolhexa Pro for advanced developer tools, API access & bulk processing. Plans start at $9.99/month with 14-day free trial."
+        title="Premium Products - Toolhexa"
+        description="Premium developer products & services to enhance your workflow and boost productivity."
         canonicalUrl="/products"
         keywords={['developer tools pricing', 'premium tools', 'developer subscriptions', 'pro tools', 'team tools']}
       />

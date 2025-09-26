@@ -19,8 +19,8 @@ const Categories = () => {
   return (
     <>
       <SEOHead 
-        title="Developer Tool Categories - Toolhexa"
-        description="Browse developer tools by category: Text processing, CSS generators, Image tools, Color utilities & Security tools. Find the right tool."
+        title="Tool Categories - Toolhexa"
+        description="Browse tools by category: Text, CSS, Image, Color & Security tools. Find the right developer utility."
         canonicalUrl="/categories"
         keywords={['developer categories', 'tool categories', 'CSS tools', 'text tools', 'image tools', 'color tools']}
       />

@@ -103,8 +103,8 @@ const Blog = () => {
   return (
     <>
       <SEOHead 
-        title="Developer Blog - Tips, Tutorials & Best Practices"
-        description="Read the latest developer insights, tool tutorials & programming best practices. Stay updated with modern web development techniques."
+        title="Developer Blog - Toolhexa"
+        description="Latest developer tutorials, tips & best practices. Web development guides & tool usage."
         canonicalUrl="/blog"
         keywords={['developer blog', 'programming tutorials', 'web development', 'coding tips', 'developer insights']}
       />
