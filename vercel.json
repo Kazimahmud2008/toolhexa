@@ -1,18 +1,4 @@
-{
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.toolhexa.vercel.app"
-        }
-      ],
-      "destination": "https://toolhexa.vercel.app/$1",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
+"rewrites": [
     { "source": "/:path((?!sitemap.xml|robots.txt).*)*", "destination": "/index.html" }
   ],
   "headers": [
