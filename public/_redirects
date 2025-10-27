@@ -1,11 +1,4 @@
-# Redirect www to non-www (prevents 307/308 redirect loops)
-https://www.toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
-http://www.toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
-
-# Force HTTPS
-http://toolhexa.vercel.app/* https://toolhexa.vercel.app/:splat 301!
-
-# Exclude static files from SPA fallback
+# Sitemap and robots.txt - serve directly
 /sitemap.xml    /sitemap.xml    200
 /robots.txt     /robots.txt     200
 
