@@ -21,7 +21,7 @@ User-agent: AhrefsSiteAudit
 Allow: /
 
 # Sitemap location
-Sitemap: https://toolhexa.vercel.app/sitemap.xml
+Sitemap: https://toolhexa.lovable.app/sitemap.xml
 
 # Crawl-delay for respectful crawling
 # Crawl-delay: 1
